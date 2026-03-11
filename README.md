@@ -695,8 +695,8 @@ Uses **WebSocket** long connection
   "channels": {
     "wecom": {
       "enabled": true,
-      "botId": "aibBK28tvX2B3JQw13KQmmL0XIA9vW_syiE",
-      "secret": "yuIb7KND133batrtnFDZLX1wuXDMVfU8E89U1fntL2R",
+      "botId": "xxx",
+      "secret": "xxxxxx",
       "allowFrom": [
         "*"
       ],
