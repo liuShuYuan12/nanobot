@@ -197,17 +197,18 @@ That's it! You have a working AI assistant in 2 minutes.
 
 Connect nanobot to your favorite chat platform.
 
-| Channel | What you need |
-|---------|---------------|
+| Channel     | What you need |
+|-------------|---------------|
 | **Telegram** | Bot token from @BotFather |
 | **Discord** | Bot token + Message Content intent |
 | **WhatsApp** | QR code scan |
-| **Feishu** | App ID + App Secret |
-| **Mochat** | Claw token (auto-setup available) |
+| **Feishu**  | App ID + App Secret |
+| **Mochat**  | Claw token (auto-setup available) |
 | **DingTalk** | App Key + App Secret |
-| **Slack** | Bot token + App-Level token |
-| **Email** | IMAP/SMTP credentials |
-| **QQ** | App ID + App Secret |
+| **Slack**   | Bot token + App-Level token |
+| **Email**   | IMAP/SMTP credentials |
+| **QQ**      | App ID + App Secret |
+| **wecom**   | botId + App Secret |
 
 <details>
 <summary><b>Telegram</b> (Recommended)</summary>
@@ -676,6 +677,43 @@ nanobot gateway
 ```
 
 </details>
+
+<details>
+<summary><b>Feishu (飞书)</b></summary>
+
+Uses **WebSocket** long connection 
+
+**1. Create a WeCom bot**
+- On the client side, go to the 【工作台】, click 【智能机器人】, and select 【创建机器人】. Choose the API mode for creation.
+- Select 【长连接】 as the creation method, and obtain the Bot ID and Secret.
+
+
+**2. Configure nanobot**
+
+```json
+{
+  "channels": {
+    "wecom": {
+      "enabled": true,
+      "botId": "aibBK28tvX2B3JQw13KQmmL0XIA9vW_syiE",
+      "secret": "yuIb7KND133batrtnFDZLX1wuXDMVfU8E89U1fntL2R",
+      "allowFrom": [
+        "*"
+      ],
+      "groupPolicy": "mention"
+    }
+  }
+}
+```
+
+**3. Run**
+
+```bash
+nanobot gateway
+```
+
+</details>
+
 
 ## 🌐 Agent Social Network
 
