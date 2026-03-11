@@ -200,6 +200,14 @@ class QQConfig(Base):
     )  # Allowed user openids (empty = public access)
 
 
+class WeComConfig(Base):
+    """企业微信 AI 机器人通道配置（WebSocket 长连接模式）"""
+
+    enabled: bool = False
+    bot_id: str = ""  # 机器人 ID（企业微信后台获取）
+    secret: str = ""  # 机器人 Secret（企业微信后台获取）
+    allow_from: list[str] = Field(default_factory=list)  # 允许的用户 userid 列表
+    group_policy: Literal["open", "mention"] = "mention"  # "mention" 仅 @机器人 时响应，"open" 响应所有消息
 
 
 class ChannelsConfig(Base):
@@ -217,6 +225,7 @@ class ChannelsConfig(Base):
     slack: SlackConfig = Field(default_factory=SlackConfig)
     qq: QQConfig = Field(default_factory=QQConfig)
     matrix: MatrixConfig = Field(default_factory=MatrixConfig)
+    wecom: WeComConfig = Field(default_factory=WeComConfig)
 
 
 class AgentDefaults(Base):

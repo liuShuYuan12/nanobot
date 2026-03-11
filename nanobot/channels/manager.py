@@ -150,6 +150,17 @@ class ChannelManager:
             except ImportError as e:
                 logger.warning("Matrix channel not available: {}", e)
 
+        # WeCom channel
+        if self.config.channels.wecom.enabled:
+            try:
+                from nanobot.channels.wecom import WeComChannel
+                self.channels["wecom"] = WeComChannel(
+                    self.config.channels.wecom, self.bus
+                )
+                logger.info("WeCom channel enabled")
+            except ImportError as e:
+                logger.warning("WeCom channel not available: {}", e)
+
         self._validate_allow_from()
 
     def _validate_allow_from(self) -> None:
