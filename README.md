@@ -679,7 +679,7 @@ nanobot gateway
 </details>
 
 <details>
-<summary><b>Feishu (飞书)</b></summary>
+<summary><b>wecom (企业微信)</b></summary>
 
 Uses **WebSocket** long connection 
 
